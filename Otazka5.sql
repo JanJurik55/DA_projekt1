@@ -7,7 +7,7 @@
 
 WITH hdp AS 
 	(SELECT t.`year`, t.GDP
-	FROM t_j_j_table2 t
+	FROM t_Jan_Jurik_project_SQL_secondary_final t
 	WHERE t.country = 'Czech Republic'
 	),
 growth_hdp AS 
@@ -19,8 +19,8 @@ growth_hdp AS
 	),
 price AS
 	(SELECT t1.price_year AS rok, sum(t1.price_average) AS souhrn, sum(t2.price_average) AS souhrn_loni
-	FROM t_j_j_table1 t1
-	JOIN t_j_j_table1 t2
+	FROM t_Jan_Jurik_project_SQL_primary_final t1
+	JOIN t_Jan_Jurik_project_SQL_primary_final t2
 	ON t1.price_year = t2.price_year +1
 	GROUP BY t1.price_year
 	),
@@ -31,7 +31,7 @@ growth_price AS
 	),
 salary_yearly as
 	(SELECT payroll_year AS rok, salary		
-	FROM t_j_j_table1 t1
+	FROM t_Jan_Jurik_project_SQL_primary_final t1
 	WHERE industry_branch_code IS NULL
 	GROUP BY payroll_year
 	),

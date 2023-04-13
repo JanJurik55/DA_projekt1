@@ -5,11 +5,11 @@
  */
 
 /*
- * var.A průměrný meziroční nárůst ceny za celé období
+ * var.A průměrný meziroční nárůst ceny za sledované období
  */
 WITH table1 AS 
 	(SELECT price_year, category_code, price_average, food_name
-	FROM t_j_j_table1 t
+	FROM t_Jan_Jurik_project_SQL_primary_final t
 	GROUP BY price_year, category_code
 	),
 vyber AS
@@ -30,7 +30,7 @@ ORDER BY prum_narust_celkem
  */
 WITH table1 AS 
 	(SELECT price_year, category_code, price_average, food_name
-	FROM t_j_j_table1 t
+	FROM t_Jan_Jurik_project_SQL_primary_final t
 	GROUP BY price_year, category_code
 	),
 vyber AS
@@ -39,11 +39,9 @@ vyber AS
 	FROM table1 t1
 	JOIN table1 t2
 		ON  t1.category_code = t2.category_code AND t1.price_year = t2.price_year + 1
-	#WHERE t1.category_code = 111101
-	#GROUP BY category_code
 	ORDER BY category_code
 	)
-SELECT * #food_name, min(mezirocni_narust)
+SELECT food_name, min(mezirocni_narust)
 FROM vyber
 ORDER BY mezirocni_narust 
 	;

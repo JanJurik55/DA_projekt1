@@ -1,6 +1,6 @@
-/* Rostou v průběhu let mzdy ve všech odvětvích, nebo v některých klesají?
+/* Otázka č.1
+ *Rostou v průběhu let mzdy ve všech odvětvích, nebo v některých klesají?
  *	(payroll_value, industry_code, year)
- *
  */
 
 
@@ -10,7 +10,7 @@ WITH salary_yearly as
 		payroll_year,	
 		industry_branch_code,
 		t1.name
-	FROM t_j_j_table1 t1
+	FROM t_Jan_Jurik_project_SQL_primary_final t1
 	WHERE industry_branch_code IS NOT NULL
 	GROUP BY industry_branch_code, payroll_year
 	)

@@ -29,7 +29,7 @@ CREATE OR REPLACE VIEW v_J_J_food AS
  * Vytvoření tabulky č.1 sjednocením z pohledů pro společné období pro ČR
  */
 
-CREATE OR REPLACE TABLE t_J_J_table1 AS	
+CREATE OR REPLACE TABLE t_Jan_Jurik_project_SQL_primary_final AS	
 	SELECT *
 	FROM v_j_j_food vf
 	JOIN v_j_j_salary vs
@@ -41,7 +41,7 @@ CREATE OR REPLACE TABLE t_J_J_table1 AS
  * 
  */
 
-CREATE OR REPLACE TABLE t_J_J_table2 AS	
+CREATE OR REPLACE TABLE t_Jan_Jurik_project_SQL_secondary_final AS	
 	SELECT c.country,
 		e.`year`,
 		e.GDP,
@@ -53,5 +53,5 @@ CREATE OR REPLACE TABLE t_J_J_table2 AS
 	WHERE c.continent = "Europe"
 		AND e.`year` IN 
 		(SELECT DISTINCT payroll_year
-			FROM t_j_j_table1)
+			FROM t_Jan_Jurik_project_SQL_primary_final)
 ;

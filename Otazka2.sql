@@ -6,9 +6,9 @@
 
 
 
-SELECT price_year AS 'year', food_name, #price_average, salary,
+SELECT price_year AS 'year', food_name,
 		round(salary/price_average, 0) AS amount, price_unit AS unit
-FROM t_j_j_table1 t
+FROM t_Jan_Jurik_project_SQL_primary_final t
 WHERE price_year IN (2006, 2018)
 	AND (food_name LIKE "Mléko%" OR food_name LIKE "Chléb%")
 	AND industry_branch_code IS NULL
