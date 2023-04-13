@@ -1,2 +1,3 @@
 # DA_projekt1
-Projekt No1 Datová Akademie Engeto
+Projekt SQL, Datová Akademie Engeto
+Skripty jsou vytvořeny pro zkušební databázi MariaDB
